@@ -15,7 +15,7 @@ contract Election {
         address vote;
     }
 
-    address[] candidateAddresses;
+    address[] public candidateAddresses;
     address public owner;
     string public electionName;
 
@@ -46,7 +46,7 @@ contract Election {
     * @dev this function registers a candidate, msg.sender will be candidate and msg.value should be 1 eth.
     * @notice this function registers a new candidate.
      */
-    function registerCandidate() public payable {
+    function payFee() public payable {
         require(msg.value == 100 wei, "Pay 100 wei to register");
         candidates[msg.sender].registered = true;        
     }
